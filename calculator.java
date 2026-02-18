@@ -1,43 +1,17 @@
-import java.util.Scanner;
-
 public class calculator {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter first number: ");
-        double a = sc.nextDouble();
-
-        System.out.print("Enter second number: ");
-        double b = sc.nextDouble();
-
-        System.out.print("Choose operation (+ - * /): ");
-        char op = sc.next().charAt(0);
-
-        double result;
-
-        switch (op) {
-            case '+':
-                result = a + b;
-                break;
-            case '-':
-                result = a - b;
-                break;
-            case '*':
-                result = a * b;
-                break;
-            case '/':
-                if (b == 0) {
-                    System.out.println("Cannot divide by zero");
-                    return;
-                }
-                result = a / b;
-                break;
-            default:
-                System.out.println("Invalid operation");
-                return;
+        if (args.length < 2) {
+            System.out.println("Please provide two numbers.");
+            return;
         }
 
-        System.out.println("Result: " + result);
-        sc.close();
+        double num1 = Double.parseDouble(args[0]);
+        double num2 = Double.parseDouble(args[1]);
+
+        System.out.println("Addition: " + (num1 + num2));
+        System.out.println("Subtraction: " + (num1 - num2));
+        System.out.println("Multiplication: " + (num1 * num2));
+        System.out.println("Division: " + (num1 / num2));
     }
 }
